@@ -1,18 +1,21 @@
-// src/App.js
 import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Login from './login';
 import Signup from './signup';
+import Home from './home'; // Import the Home component
 
 function App() {
   return (
-    // BrowserRouter must be the top-level wrapper here
+    // BrowserRouter is the top-level wrapper for routing
     <BrowserRouter>
-      {/* Any other components like a header or nav bar should also go inside */}
       <Routes>
+        {/* Default route redirects to the login page */}
         <Route path="/" element={<Navigate to="/login" />} />
+        
+        {/* Define routes for each page */}
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/home" element={<Home />} /> {/* Added route for the home page */}
       </Routes>
     </BrowserRouter>
   );

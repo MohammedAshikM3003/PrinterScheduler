@@ -1,24 +1,28 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-
-// Replaced local assets with placeholder images for demonstration
-const SignupIllustrator = 'https://placehold.co/600x400/e0e7ff/3730a3?text=Create+Account';
-const PrinterIcon = 'https://placehold.co/100x100/ffffff/4f46e5?text=Sign+Up';
-const PrinterSchedularIcon = 'https://placehold.co/40x40/ffffff/ffffff?text=PS';
+import { Link, useNavigate } from 'react-router-dom'; // Import useNavigate
+import SignupIllustrator from './assets/SignupIllustrator.png'; // Replace with actual path to your illustration
+import GoogleIcon from './assets/GoogleIcon.png';
+import LoginIcon from './assets/Loginicon.png'; // Replace with actual path
+import PrinterSchedularIcon from './assets/PrinterSchedularIcon.png';
 
 function Signup() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const navigate = useNavigate(); // Initialize navigate function
 
     const handleSignup = () => {
         // Handle signup logic here
         console.log('Signing up with:', email, password);
+        // After successful signup, navigate to the home page
+        navigate('/home');
     };
 
     const handleGoogleSignup = () => {
         // Handle Google signup logic here
         console.log('Signing up with Google');
+        // After successful Google signup, navigate to the home page
+        navigate('/home');
     };
 
     return (
@@ -26,8 +30,8 @@ function Signup() {
             {/* Header / Navbar */}
             <div className="flex justify-between items-center p-4 bg-blue-600 text-white shadow-md">
                 <div className="flex items-center space-x-2">
-                    <div className="text-2xl"><img src={PrinterSchedularIcon} className="w-10 h-10 ml-6" alt="Printer Scheduler Icon"/></div>
-                    <span className="font-bold text-xl ml-8">Printer Scheduler</span>
+                    <div className="text-2xl"><img src={PrinterSchedularIcon} className="w-10 h-10 ml-6" alt="Printer Scheduler Icon" style={{ marginLeft: '26px', width: '40px',height:'38px' }} /></div>
+                    <span className="font-bold text-xl ml-8" style={{ marginLeft: '32px' }}>Printer Scheduler</span>
                 </div>
                 <div className="flex items-center space-x-6">
                     {['Home', 'Payment', 'Profile', 'Contact'].map((item) => (
@@ -35,7 +39,7 @@ function Signup() {
                             <span>{item}</span>
                         </a>
                     ))}
-                    <button className="bg-[#D23B42] text-white px-4 py-2 rounded-full font-semibold transition-colors duration-200 hover:bg-[#b92e37] active:bg-[#a02730]">
+                    <button className="bg-[#D23B42] text-white px-4 py-2 rounded-full font-semibold transition-colors duration-200 hover:bg-[#b92e37] active:bg-[#a02730]" style={{ width: '89px' }}>
                         Logout
                     </button>
                 </div>
@@ -45,10 +49,10 @@ function Signup() {
             <div className="flex flex-grow justify-center items-center p-8 lg:p-16">
                  {/* Signup Form */}
                  <div className="w-full lg:w-1/2 flex justify-center items-center">
-                    <div className="bg-white p-8 sm:p-12 rounded-2xl shadow-xl flex flex-col items-center max-w-sm w-full">
+                    <div className="bg-white p-8 sm:p-12 rounded-2xl shadow-xl flex flex-col items-center max-w-sm w-full" style={{marginTop: '-52px', height:'535px'}}>
                         <div>
                           <img 
-                            src={PrinterIcon} 
+                            src={LoginIcon} 
                             alt="Icon" 
                             className="w-24 -mt-5"
                           />
@@ -108,12 +112,7 @@ function Signup() {
                             className="w-full flex items-center justify-center bg-white border border-gray-300 text-gray-700 font-bold py-3 rounded-xl mb-4 hover:bg-gray-50 transition-colors duration-200"
                             onClick={handleGoogleSignup}
                         >
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-3" viewBox="0 0 48 48">
-                                <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.79 17.52 9.5 24 9.5z"/>
-                                <path fill="#4285F4" d="M46.72 24c0-.96-.09-1.85-.25-2.73H24v5.35h12.56c-.57 3.32-2.8 5.92-5.74 7.84v4.58l6.19 4.79C43.7 39.54 46.72 32.73 46.72 24z"/>
-                                <path fill="#FBBC05" d="M10.53 28.36c-.45-1.34-.72-2.79-.72-4.29s.27-2.95.72-4.29v-4.58l-7.98-6.19C2.08 11.23 0 17.27 0 24s2.08 12.77 5.25 18.81l7.98-6.19c-.45-1.34-.72-2.79-.72-4.29z"/>
-                                <path fill="#34A853" d="M24 48c6.47 0 11.9-2.38 15.8-6.32l-6.19-4.79c-2.94 1.92-5.17 4.52-5.74 7.84H24V48z"/>
-                            </svg>
+                            <img src={GoogleIcon} alt="Google Icon" style={{ marginRight: '15px' }} /> 
                             Signup via Google
                         </button>
 
@@ -139,7 +138,8 @@ function Signup() {
                         src={SignupIllustrator}
                         alt="Illustration of person creating an account"
                         className="rounded-lg shadow-lg max-w-full"
-                    />
+                        style={{marginTop: '-50px',width: '537px'}}
+                        />
                 </div>
             </div>
         </div>

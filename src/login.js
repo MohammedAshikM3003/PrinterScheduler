@@ -3,20 +3,25 @@ import LoginIllustrator from './assets/LoginIllustrator.png'; // Replace with ac
 import Loginicon from './assets/Loginicon.png'; // Replace with actual path to your icon
 import PrinterSchedularIcon from './assets/PrinterSchedularIcon.png'; 
 import GoogleIcon from './assets/GoogleIcon.png';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom'; // Import useNavigate
 
 function Login() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const navigate = useNavigate(); // Initialize navigate function
 
     const handleLogin = () => {
         // Handle login logic here
         console.log('Logging in with:', email, password);
+        // After successful login, navigate to the home page
+        navigate('/home');
     };
 
     const handleGoogleLogin = () => {
         // Handle Google login logic here
         console.log('Logging in with Google');
+        // After successful Google login, navigate to the home page
+        navigate('/home');
     };
 
     return (
@@ -24,7 +29,7 @@ function Login() {
             {/* Header / Navbar */}
             <div className="flex justify-between items-center p-4 bg-blue-600 text-white shadow-md">
                 <div className="flex items-center space-x-2">
-                    <div className="text-2xl"><img src={PrinterSchedularIcon} style={{marginLeft:'26px',width:'40px'}}/></div>
+                    <div className="text-2xl"><img src={PrinterSchedularIcon} style={{marginLeft:'26px',width:'40px'}} alt="Scheduler Icon"/></div>
                     <span className="font-bold text-xl" style={{marginLeft:'32px'}}>Printer Scheduler</span>
                 </div>
                 <div className="flex items-center space-x-6">
