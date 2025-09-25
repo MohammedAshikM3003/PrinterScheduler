@@ -2,7 +2,8 @@ import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import Login from './login';
 import Signup from './signup';
-import Home from './home'; // Import the Home component
+import Home from './home';
+import Profile from './profile'; // Import the Profile component
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
         {/* Define routes for each page */}
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/home" element={<Home />} /> {/* Added route for the home page */}
+        <Route path="/home" element={<Home />} />
+        <Route path="/profile" element={<Profile />} /> {/* Added route for the profile page */}
       </Routes>
     </BrowserRouter>
   );
